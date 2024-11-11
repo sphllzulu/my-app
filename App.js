@@ -470,13 +470,26 @@ import * as NavigationBar from 'expo-navigation-bar';
 import Registration from "./components/Registration";
 import Login from "./components/LoginClass";
 import Counter from "./components/CounterClass";
+import CounterFunc from "./components/CounterFunc";
+import CustomInput from "./components/CustomInput";
 export default function App() {
 
+// const [password,setPassword]= useState('')
+// const [email,setEmail]= useState('')
+
+
+// useEffect(()=>{
+// console.log(password,email)
+// },[password,email])
   return (
     <>
-    {/* <Registration/> */}
+    <Registration/>
     {/* <Login/> */}
     {/* <Counter/> */}
+    {/* <CounterFunc/> */}
+    {/* <CustomInput name={'password'} onChange={setPassword}/>
+    <CustomInput name={'Email'} onChange={setEmail}/>
+       */}
     </>
   )
 }

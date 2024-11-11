@@ -12,6 +12,8 @@ import {
   ToastAndroid
 } from "react-native";
 import * as NavigationBar from 'expo-navigation-bar';
+import CustomInput from "./CustomInput";
+
 
 export default class Login extends Component {
   state = {
@@ -25,6 +27,7 @@ export default class Login extends Component {
   componentDidMount() {
     NavigationBar.setBackgroundColorAsync('#010709');
     NavigationBar.setBorderColorAsync('#fff');
+    // console.log(password,email)
   }
   
 
@@ -67,8 +70,10 @@ export default class Login extends Component {
       <SafeAreaView style={styles.container}>
         <ScrollView contentContainerStyle={styles.scrollView}>
           <Text style={styles.formTitle}>Login</Text>
+          <CustomInput name={'password'} onChange ={ (ev)=>{this.handleInputChange('password', ev)}}/>
+          <CustomInput name={'Email'} onChange={(ev)=>{this.handleInputChange('email', ev)}}/>
 
-          <View style={styles.inputContainer}>
+          {/* <View style={styles.inputContainer}>
             <Text style={styles.label}>Email</Text>
             <TextInput 
               style={styles.input} 
@@ -91,7 +96,7 @@ export default class Login extends Component {
               value={formData.password}
               onChangeText={(text) => this.handleInputChange('password', text)} 
             />
-          </View>
+          </View> */}
 
           <Pressable
             style={styles.button}

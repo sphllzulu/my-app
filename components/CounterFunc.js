@@ -1,24 +1,31 @@
 
+import { useEffect, useState } from "react";
 import { StyleSheet,Pressable,View,Text} from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function CounterFunc(){
 
+   const [counter, setCounter]=useState(0);
    
-   
+//componentDidMount
+  useEffect(()=>{
+console.log('mounted')
+return ()=>{console.log('unmounted')}
+  },[])
 
-handleIncrement = () => {
-    this.setState(prevState => ({
-    counter: prevState.counter + 1
-    }));
-};
+//componentDidUpdate
+  useEffect(()=>{
+console.log('updated',counter)
+  },[counter])
 
 
-handleDecrement = () => {
-    this.setState(prevState => ({
-        counter: prevState.counter - 1
-    }));
-};
+   function handleIncrement() {
+    setCounter(prevCounter => prevCounter + 1);
+}
+
+function handleDecrement() {
+    setCounter(prevCounter => prevCounter - 1);
+}
 
 
 
@@ -28,14 +35,14 @@ handleDecrement = () => {
             <View style={styles.counterCont}>
             <Pressable
             style={styles.button}
-            onPress={this.handleIncrement}
+            onPress={handleIncrement}
             >
             <Text style={styles.buttonText}>Add</Text>
           </Pressable>
-          <Text style={styles.counterText}>{this.state.counter}</Text>
+          <Text style={styles.counterText}>{counter}</Text>
             <Pressable
             style={styles.button}
-            onPress={this.handleDecrement}
+            onPress={handleDecrement}
             >
             <Text style={styles.buttonText}>Subtract</Text>
           </Pressable>
